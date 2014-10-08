@@ -1,0 +1,24 @@
+{
+  "name": "ricochet-robots",
+  "version": "0.1.0",
+  "main": "bin/server.js",
+  "scripts": {
+    "start": "node bin/server.js",
+    "test": "mocha test/"
+  },
+  "dependencies": {
+    "express": "^4.9.5"
+  },
+  "devDependencies": {
+    "mocha": "1.21.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bergold/nodejs-ricochetrobots.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bergold/nodejs-ricochetrobots/issues"
+  },
+  "homepage": "https://github.com/bergold/nodejs-ricochetrobots"
+}
