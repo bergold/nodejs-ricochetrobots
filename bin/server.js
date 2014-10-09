@@ -1,13 +1,23 @@
+var WebSocketServer = require("ws").Server;
+var http = require("http");
 var express = require('express');
+
 var app = express();
+var port = process.env.PORT || 5000;
 
-app.set('port', (process.env.PORT || 5000));
 // app.use(express.static(__dirname + '/public'));
-
 app.get('/', function(request, response) {
   response.send('under construction...');
 });
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
+var server = http.createServer(app);
+server.listen(port);
+
+console.log("http server listening on %d", port);
+
+var wss = new WebSocketServer({ server: server, path: "/api" });
+console.log("websocket server created");
+
+wss.on("connection", function(ws) {
+  // [Todo] handle new websocket connection.
 });
