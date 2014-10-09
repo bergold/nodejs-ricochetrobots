@@ -1,0 +1,88 @@
+@primary-100: #b3e5fc;
+@primary-500: #03a9f4;
+@primary-700: #0288d1;
+
+@accent-a200: #ff4081;
+
+@black: #000000;
+@divider: fade(@black, 12%);
+@text-hint: fade(@black, 26%);
+@text-secondary: fade(@black, 54%);
+@text: fade(@black, 87%);
+
+// @bg: #1a1a1a;
+@bg: #ffffff;
+
+@increment: 64px;
+@appbar-height: @increment * 1;
+@sidenav-width: @increment * 3;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+// Layout
+[fit] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+[layout="vertical"] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+[layout="horizontal"] {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+[appbar] {
+  height: @appbar-height;
+  background: @primary-500;
+}
+[main] {
+  flex: 1;
+  background: @bg;
+}
+[sidenav] {
+  width: @sidenav-width;
+  margin: 12px;
+  padding: 12px;
+  border-right: 1px solid @divider;
+}
+[content] {
+  flex: 1;
+}
+
+// fonts
+.title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.menu {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+// Sidenav
+.item {
+  display: block;
+  height: 48px;
+  line-height: 48px;
+  text-decoration: none;
+  color: @text;
+  .menu();
+}
+.divider {
+  display: block;
+  margin: 0 24px 0 0;
+  height: 1px;
+  background: @divider;
+}
+
