@@ -21,12 +21,12 @@ console.log('websocket server created');
 
 wss.on('connection', function(ws) {
   // [Todo] handle new websocket connection.
-  console.log('new ws connection');
+  console.log('new websocket connection');
   
   ws.on('message', function(msg) {
     ws.send(msg);
   });
   ws.on('close', function() {
-    console.log('socket closed');
+    console.log('websocket connection closed');
   });
 });
