@@ -4,6 +4,7 @@ var express = require('express');
 
 var app = express();
 var port = process.env.PORT || 5000;
+var wsPath = process.env.WS_PATH || '/api';
 
 app.get('/', function(req, res, next) {
   if (req.query.dev === undefined) return res.send("under construction...");
@@ -16,8 +17,8 @@ server.listen(port);
 
 console.log('http server listening on %d', port);
 
-var wss = new WebSocketServer({ server: server, path: '/api' });
-console.log('websocket server created');
+var wss = new WebSocketServer({ server: server, path: wsPath });
+console.log('websocket server created on %d', wsPath);
 
 wss.on('connection', function(ws) {
   // [Todo] handle new websocket connection.
