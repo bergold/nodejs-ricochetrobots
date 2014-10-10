@@ -1,1 +1,17 @@
-<h1>WebSocket Console</h1>
+<div fit ng-controller="WebSocketCtrl" layout="vertical">
+  <header layout="horizontal">
+    <input flex type="text" placeholder="ws://example.com/ws" ng-model="uri" ng-disabled="connected || changing" />
+    <button ng-disabled="changing" ng-hide="connected" ng-click="open()">Open</button>
+    <button ng-disabled="changing" ng-show="connected" ng-click="close()">Close</button>
+  </header>
+  <section flex scrollable class="list">
+    <div ng-repeat="msg in msgs" class="list-item" ng-class="{ 'log': msg.type=='log' }">
+      <span ng-if="msg.sender" class="sender">{{msg.sender}}: </span>
+      {{msg.content}}
+    </div>
+  </section>
+  <footer layout="horizontal">
+    <input flex type="text" placeholder="Type message..." ng-model="msg" ng-disabled="!connected || changing" />
+    <button ng-disabled="!connected || changing" ng-click="send()">Send</button>
+  </footer>
+</div>
