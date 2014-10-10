@@ -18,7 +18,7 @@ server.listen(port);
 console.log('http server listening on %d', port);
 
 var wss = new WebSocketServer({ server: server, path: wsPath });
-console.log('websocket server created on %d', wsPath);
+console.log('websocket server created on %s', wsPath);
 
 wss.on('connection', function(ws) {
   // [Todo] handle new websocket connection.
