@@ -87,7 +87,7 @@ devconsole.controller("WebSocketCtrl", function($scope, websocket) {
   
   $scope.connected = false;
   $scope.changing = false;
-  $scope.uri = "ws://" + location.host + "/api";
+  $scope.uri = "ws" + (location.protocol=="https:" ? "s" : "") + "://" + location.host + "/api";
   $scope.msgs = [];
   
   ws.on("open", function() {
