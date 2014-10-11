@@ -57,10 +57,19 @@
   
   .list-item {
     display: block;
-    padding: 0 16px;
+    box-sizing: border-box;
+    padding: 16px;
     height: 48px;
-    line-height: 48px;
     .font(subhead);
+    
+    &.two-lines {
+      height: 72px;
+      .font(body1);
+      color: @text-secondary;
+      .primary {
+        .font(subhead);
+      }
+    }
   }
   .divider {
     display: block;

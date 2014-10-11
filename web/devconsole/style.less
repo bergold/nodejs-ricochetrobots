@@ -78,12 +78,14 @@ h4, .h4 {
 }
 
 // partial:websocket
-.list-item.log {
-  .font(caption);
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-}
-.list-item .sender {
-  .font(button);
+.partial-websocket {
+  .list-item.log {
+    .font(caption);
+    height: 24px;
+    padding: 5px;
+    text-align: center;
+  }
+  .list .list-item.remote .primary {
+    color: @accent-a200;
+  }
 }

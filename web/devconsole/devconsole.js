@@ -67,7 +67,7 @@ devconsole.service("websocket", function($q) {
 
 /// WebSocketCtrl
 devconsole.controller("WebSocketCtrl", function($scope, websocket) {
-  var ws = new websocket();
+  var ws = $scope.ws = new websocket();
   
   var log = function() {
     var args = ["[ws]"].concat([].slice.call(arguments, 0));
@@ -102,7 +102,7 @@ devconsole.controller("WebSocketCtrl", function($scope, websocket) {
     $scope.$apply(function() {
       $scope.msgs.push({
         type: "message",
-        sender: "remote",
+        sender: "Remote",
         content: msg.data
       });
     });
@@ -127,9 +127,13 @@ devconsole.controller("WebSocketCtrl", function($scope, websocket) {
     ws.send(msg);
     $scope.msgs.push({
       type: "message",
-      sender: "local",
+      sender: "Local",
       content: msg
     });
     $scope.msg = '';
   };
+  
+  $scope.$on("$destroy", function() {
+    $scope.close();
+  });
 });

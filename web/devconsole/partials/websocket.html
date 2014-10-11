@@ -1,13 +1,13 @@
-<div fit ng-controller="WebSocketCtrl" layout="vertical">
+<div fit ng-controller="WebSocketCtrl" layout="vertical" class="partial-websocket">
   <header layout="horizontal">
     <input flex type="text" placeholder="ws://example.com/ws" ng-model="uri" ng-disabled="connected || changing" />
     <button ng-disabled="changing" ng-hide="connected" ng-click="open()">Open</button>
     <button ng-disabled="changing" ng-show="connected" ng-click="close()">Close</button>
   </header>
   <section flex scrollable class="list">
-    <div ng-repeat="msg in msgs" class="list-item" ng-class="{ 'log': msg.type=='log' }">
-      <span ng-if="msg.sender" class="sender">{{msg.sender}}: </span>
-      {{msg.content}}
+    <div ng-repeat="msg in msgs" class="list-item" ng-class="{ 'log': msg.type=='log', 'two-lines': msg.type=='message', 'remote': msg.sender=='Remote' }">
+      <div ng-if="msg.sender" class="primary">{{msg.sender}}</div>
+      <div ng-bind="msg.content" class="secondary"></div>
     </div>
   </section>
   <footer layout="horizontal">
