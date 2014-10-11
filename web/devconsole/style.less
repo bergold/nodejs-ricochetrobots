@@ -1,21 +1,23 @@
+@import "material";
+
 @primary-100: #b3e5fc;
 @primary-500: #03a9f4;
 @primary-700: #0288d1;
 
 @accent-a200: #ff4081;
 
-@black: #000000;
+@black: #ffffff;
 @divider: fade(@black, 12%);
 @text-hint: fade(@black, 26%);
 @text-secondary: fade(@black, 54%);
 @text: fade(@black, 87%);
 
-// @bg: #1a1a1a;
-@bg: #ffffff;
+@bg: #1a1a1a;
+//@bg: #ffffff;
 
 @increment: 64px;
 @appbar-height: @increment * 1;
-@sidenav-width: @increment * 3;
+@sidenav-width: @increment * 4;
 
 * {
   margin: 0;
@@ -41,48 +43,49 @@
   flex-direction: row;
   align-items: stretch;
 }
+[flex] {
+  flex: 1;
+}
+[scrollable] {
+  overflow: auto;
+}
 
-[appbar] {
-  height: @appbar-height;
+.container {
+  overflow: hidden;
+}
+.sidenav {
+  width: @sidenav-width;
   background: @primary-500;
 }
-[main] {
-  flex: 1;
+.main {
+  position: relative;
   background: @bg;
 }
-[sidenav] {
-  width: @sidenav-width;
-  margin: 12px;
-  padding: 12px;
-  border-right: 1px solid @divider;
+
+
+// headers
+h1, .h1 {
+  .font(display4);
 }
-[content] {
-  flex: 1;
+h2, .h2 {
+  .font(display3);
+}
+h3, .h3 {
+  .font(display2);
+}
+h4, .h4 {
+  .font(display1);
 }
 
-// fonts
-.title {
-  font-size: 20px;
-  font-weight: 500;
+// partial:websocket
+.partial-websocket {
+  .list-item.log {
+    .font(caption);
+    height: 24px;
+    padding: 5px;
+    text-align: center;
+  }
+  .list .list-item.remote .primary {
+    color: @accent-a200;
+  }
 }
-.menu {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-// Sidenav
-.item {
-  display: block;
-  height: 48px;
-  line-height: 48px;
-  text-decoration: none;
-  color: @text;
-  .menu();
-}
-.divider {
-  display: block;
-  margin: 0 24px 0 0;
-  height: 1px;
-  background: @divider;
-}
-

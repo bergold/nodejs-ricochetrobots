@@ -1,0 +1,80 @@
+// Colors
+@black: #000000;
+@divider: fade(@black, 12%);
+@text-hint: fade(@black, 26%);
+@text-secondary: fade(@black, 54%);
+@text: fade(@black, 87%);
+
+// Fonts
+.font-base(@weight; @size; @color) {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-weight: @weight;
+  font-size: @size;
+  color: @color;
+}
+.font(display4) {
+  .font-base(300, 112px, @text-secondary);
+}
+.font(display3) {
+  .font-base(400, 56px, @text-secondary);
+}
+.font(display2) {
+  .font-base(400, 45px, @text-secondary);
+}
+.font(display1) {
+  .font-base(400, 34px, @text-secondary);
+}
+.font(headline) {
+  .font-base(400, 24px, @text);
+}
+.font(title) {
+  .font-base(500, 20px, @text);
+}
+.font(subhead) {
+  .font-base(400, 15px, @text);
+}
+.font(body2) {
+  .font-base(500, 13px, @text);
+}
+.font(body1) {
+  .font-base(400, 13px, @text);
+}
+.font(caption) {
+  .font-base(400, 12px, @text-secondary);
+}
+.font(menu) {
+  .font-base(500, 13px, @text);
+}
+.font(button) {
+  .font-base(500, 14px, @text);
+  text-transform: uppercase;
+}
+
+// List
+.list {
+  padding: 16px 0;
+  
+  .list-item {
+    display: block;
+    box-sizing: border-box;
+    padding: 16px;
+    height: 48px;
+    .font(subhead);
+    
+    &.two-lines {
+      height: 72px;
+      .font(body1);
+      color: @text-secondary;
+      .primary {
+        .font(subhead);
+      }
+    }
+  }
+  .divider {
+    display: block;
+    height: 1px;
+    background: @divider;
+  }
+}
+
